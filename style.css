@@ -1,0 +1,77 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #FFA500, #FFC800);  /* Orange to Yellow gradient */
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Circle Styling */
+#circle {
+    width: 250px; /* Increase the initial size of the circle */
+    height: 250px;
+    background: linear-gradient(45deg, #000066, #000000);  /* Dark Blue to Black gradient */
+    border-radius: 50%; /* Makes the div a circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow for effect */
+    opacity: 0; /* Initially hidden */
+    position: absolute; /* To control the position with animation */
+    animation: slideIn 3s ease-in-out forwards; /* Apply sliding animation */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
+
+/* Letter "Y" Styling */
+#letter {
+    font-size: 100px; /* Increase letter size to fit the bigger circle */
+    font-weight: bold;
+    color: white;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s 2s forwards; /* Delay fading in letter "Y" */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+}
+
+/* Animation for the Circle */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* Start from the left off-screen */
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(50%); /* Move to a position towards the center */
+    }
+    100% {
+        transform: translateX(0); /* Final position, centered */
+        opacity: 1;
+    }
+}
+
+/* Animation for Letter "Y" Fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hover Effect for Circle and Letter "Y" */
+#circle:hover {
+    transform: scale(1.35); /* Increase the size of the circle by 35% on hover */
+}
+
+#circle:hover #letter {
+    transform: scale(1.35); /* Increase the size of the letter "Y" by 35% on hover */
+}
